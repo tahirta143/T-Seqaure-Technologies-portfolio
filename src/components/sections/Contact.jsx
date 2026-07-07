@@ -46,42 +46,47 @@ export default function Contact() {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-    setSubmitted(false);
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formState,
-          projectType,
-          budget,
-        }),
-      });
+    const whatsappNumber = "923254828492";
+    const messageText = `Hello T-Square Technologies! I'd like to discuss a project:
 
-      const data = await response.json();
+👤 *Name:* ${formState.name}
+📧 *Email:* ${formState.email}
+🏢 *Company:* ${formState.company || "N/A"}
+💻 *Project Type:* ${projectType || "Not Specified"}
+💰 *Budget:* ${budget || "Not Specified"}
 
-      if (response.ok && data.success) {
-        setSubmitted(true);
-        setFormState({ name: "", email: "", company: "", message: "" });
-        setProjectType("");
-        setBudget("");
-        setTimeout(() => setSubmitted(false), 5000);
-      } else {
-        setError(data.message || "Something went wrong. Please try again.");
-      }
-    } catch (err) {
-      console.error(err);
-      setError("Unable to connect to the server. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
+📝 *Details:* ${formState.message}`;
+
+    const encodedMessage = encodeURIComponent(messageText);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Try sending to local API silently in the background
+    fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...formState,
+        projectType,
+        budget,
+      }),
+    }).catch((err) => console.warn("Backend submit skipped or failed:", err));
+
+    // Open WhatsApp URL
+    window.open(whatsappUrl, "_blank");
+
+    setSubmitted(true);
+    setLoading(false);
+    setFormState({ name: "", email: "", company: "", message: "" });
+    setProjectType("");
+    setBudget("");
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
@@ -312,13 +317,13 @@ export default function Contact() {
                 disabled={loading || submitted}
                 className="w-full h-12 rounded-xl bg-primary hover:bg-primary/95 text-primary-foreground font-bold text-sm shadow-md transition-colors flex items-center justify-center space-x-2"
               >
-                <MessageSquare size={16} />
+                <FaWhatsapp size={16} />
                 <span>
                   {loading
-                    ? "Sending Inquiry..."
+                    ? "Opening WhatsApp..."
                     : submitted
-                    ? "Message Sent Successfully! ✓"
-                    : "Submit Project Inquiry"}
+                      ? "Opening WhatsApp... ✓"
+                      : "Submit via WhatsApp"}
                 </span>
               </Button>
             </form>
@@ -328,4 +333,4 @@ export default function Contact() {
       </div>
     </section>
   );
-}
+}    
