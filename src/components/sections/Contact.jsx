@@ -52,7 +52,7 @@ export default function Contact() {
     setError("");
 
     const whatsappNumber = "923254828492";
-    const messageText = `Hello T-Square Technologies! I'd like to discuss a project:
+    const messageText = `Hello T-Square Innovations! I'd like to discuss a project:
 
 👤 *Name:* ${formState.name}
 📧 *Email:* ${formState.email}
