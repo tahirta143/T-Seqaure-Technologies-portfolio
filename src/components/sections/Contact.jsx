@@ -51,7 +51,7 @@ export default function Contact() {
     setLoading(true);
     setError("");
 
-    const whatsappNumber = "923254828492";
+    const whatsappNumber = "923134364840";
     const messageText = `Hello T-Square Innovations! I'd like to discuss a project:
 
 👤 *Name:* ${formState.name}
@@ -138,7 +138,7 @@ export default function Contact() {
               </a>
 
               <a
-                href="https://wa.me/923254828492"
+                href="https://wa.me/923134364840"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-start space-x-4 p-6 rounded-2xl glass-card border border-border hover:border-accent transition-colors"
@@ -150,7 +150,7 @@ export default function Contact() {
                   <h4 className="text-sm font-bold text-foreground/55 uppercase tracking-widest mb-1">
                     WhatsApp Chat
                   </h4>
-                  <p className="text-base font-semibold">+92 325 4828492</p>
+                  <p className="text-base font-semibold">+92 313 4364840</p>
                 </div>
               </a>
 
@@ -162,13 +162,13 @@ export default function Contact() {
                   <h4 className="text-sm font-bold text-foreground/55 uppercase tracking-widest mb-1">
                     Direct Phone
                   </h4>
-                  <p className="text-base font-semibold">+92 325 4828492</p>
+                  <p className="text-base font-semibold">+92 313 4364840</p>
                 </div>
               </div>
             </div>
 
             {/* Socials */}
-            <div className="pt-6">
+            {/* <div className="pt-6">
               <h4 className="text-xs font-bold text-foreground/55 uppercase tracking-widest mb-4">
                 Connect on Social Networks
               </h4>
@@ -192,7 +192,7 @@ export default function Contact() {
                   <FaGithub size={20} />
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right: Contact Form */}

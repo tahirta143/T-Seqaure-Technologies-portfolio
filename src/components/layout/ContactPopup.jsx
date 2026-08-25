@@ -34,7 +34,7 @@ export default function ContactPopup() {
     setLoading(true);
     setError("");
 
-    const whatsappNumber = "923254828492";
+    const whatsappNumber = "923134364840";
     const messageText = `Hello T-Square Technologies! I'd like to discuss a project:
 
 👤 *Name:* ${formState.name}

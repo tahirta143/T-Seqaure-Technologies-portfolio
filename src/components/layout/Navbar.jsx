@@ -72,8 +72,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Our Work", href: "#products" },
-    { name: "About Us", href: "#about" },
+    { name: "Tech Stack", href: "#tech-stack" },
     { name: "Why Us", href: "#why-choose-us" },
+    { name: "About Us", href: "#about" },
     { name: "Contact Us", href: "#contact" },
   ];
 
@@ -92,11 +93,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "py-4 bg-background/90 backdrop-blur-md border-b border-border shadow-lg"
           : "py-6 bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
@@ -122,7 +122,10 @@ export default function Navbar() {
           <a
             href="#"
             onClick={(e) => handleScrollTo(e, "#")}
-            className="px-3 py-2 text-sm font-medium opacity-80 hover:opacity-100 hover:text-accent transition-all duration-200 relative group"
+            className={`px-3 py-2 text-sm font-semibold transition-all duration-200 relative group ${scrolled
+                ? "text-foreground/80 hover:text-accent hover:opacity-100"
+                : "text-white/90 hover:text-white hover:opacity-100"
+              }`}
           >
             Home
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
@@ -136,7 +139,10 @@ export default function Navbar() {
             onMouseLeave={() => setServicesOpen(false)}
           >
             <button
-              className="flex items-center gap-1 px-3 py-2 text-sm font-medium opacity-80 hover:opacity-100 hover:text-accent transition-all duration-200"
+              className={`flex items-center gap-1 px-3 py-2 text-sm font-semibold transition-all duration-200 cursor-pointer ${scrolled
+                  ? "text-foreground/80 hover:text-accent"
+                  : "text-white/90 hover:text-white"
+                }`}
               onClick={() => setServicesOpen((v) => !v)}
               aria-expanded={servicesOpen}
             >
@@ -149,11 +155,10 @@ export default function Navbar() {
 
             {/* Mega Dropdown */}
             <div
-              className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[580px] bg-card border border-border rounded-2xl shadow-2xl p-5 transition-all duration-200 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 ${
-                servicesOpen
+              className={`absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[580px] bg-card border border-border rounded-2xl shadow-2xl p-5 transition-all duration-200 before:content-[''] before:absolute before:-top-3 before:left-0 before:right-0 before:h-3 ${servicesOpen
                   ? "opacity-100 translate-y-0 pointer-events-auto"
                   : "opacity-0 translate-y-2 pointer-events-none"
-              }`}
+                }`}
             >
               <div className="absolute -top-[7px] left-1/2 -translate-x-1/2 w-3.5 h-3.5 bg-card border-l border-t border-border rotate-45" />
 
@@ -204,7 +209,10 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={(e) => handleScrollTo(e, link.href)}
-              className="px-3 py-2 text-sm font-medium opacity-80 hover:opacity-100 hover:text-accent transition-all duration-200 relative group"
+              className={`px-3 py-2 text-sm font-semibold transition-all duration-200 relative group ${scrolled
+                  ? "text-foreground/80 hover:text-accent hover:opacity-100"
+                  : "text-white/90 hover:text-white hover:opacity-100"
+                }`}
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full" />
@@ -216,7 +224,10 @@ export default function Navbar() {
         <div className="hidden md:flex items-center space-x-4">
           <button
             onClick={toggleTheme}
-            className="p-2.5 rounded-lg border border-border hover:border-accent bg-card/50 hover:bg-card text-foreground transition-all duration-200"
+            className={`p-2.5 rounded-xl border transition-all duration-200 cursor-pointer ${scrolled
+                ? "border-border hover:border-accent bg-card/50 hover:bg-card text-foreground"
+                : "border-white/25 bg-white/10 hover:bg-white/20 text-white shadow-sm"
+              }`}
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -224,7 +235,7 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={(e) => handleScrollTo(e, "#contact")}
-            className="glow-btn px-5 py-2.5 rounded-lg bg-accent hover:bg-accent/95 text-white text-sm font-semibold shadow-[0_0_15px_var(--glow)] transition-all duration-200"
+            className="glow-btn px-5 py-2.5 rounded-xl bg-accent hover:bg-accent/95 text-white text-sm font-semibold shadow-[0_0_15px_var(--glow)] transition-all duration-200"
           >
             Book Consultation
           </a>
@@ -234,7 +245,10 @@ export default function Navbar() {
         <div className="flex items-center space-x-4 md:hidden">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg border border-border bg-card/50 text-foreground"
+            className={`p-2 rounded-xl border transition-all duration-200 cursor-pointer ${scrolled
+                ? "border-border bg-card/50 text-foreground"
+                : "border-white/25 bg-white/10 text-white"
+              }`}
             aria-label="Toggle Theme"
           >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
@@ -244,7 +258,10 @@ export default function Navbar() {
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <button
-                className="p-2 rounded-lg border border-border bg-card/50 text-foreground"
+                className={`p-2 rounded-xl border transition-all duration-200 cursor-pointer ${scrolled
+                    ? "border-border bg-card/50 text-foreground"
+                    : "border-white/25 bg-white/10 text-white"
+                  }`}
                 aria-label="Toggle Menu"
               >
                 <Menu size={20} />
@@ -254,7 +271,7 @@ export default function Navbar() {
               <SheetHeader className="sr-only">
                 <SheetTitle>Navigation Menu</SheetTitle>
               </SheetHeader>
-              
+
               <nav className="flex flex-col space-y-2 overflow-y-auto">
                 <a
                   href="#"

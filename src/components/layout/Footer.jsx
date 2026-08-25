@@ -47,13 +47,13 @@ export default function Footer() {
               />
             </a>
             <p className="text-sm text-foreground/70 leading-relaxed">
-              Transforming ideas into powerful digital products. We develop premium mobile applications, 
+              Transforming ideas into powerful digital products. We develop premium mobile applications,
               scalable SaaS systems, and intelligent AI agents for modern enterprises.
             </p>
             {/* Social Links */}
             <div className="flex items-center space-x-4 pt-2">
               <a
-                href="https://www.linkedin.com/company/tsquare-labs/?viewAsMember=true"
+                href="https://www.linkedin.com/in/tsquare-innovations/"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-lg bg-card border border-border hover:border-accent text-foreground/70 hover:text-foreground flex items-center justify-center transition-all duration-200"
@@ -62,7 +62,7 @@ export default function Footer() {
                 <FaLinkedin size={18} />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/tsquareinnovations"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-lg bg-card border border-border hover:border-accent text-foreground/70 hover:text-foreground flex items-center justify-center transition-all duration-200"
@@ -71,7 +71,7 @@ export default function Footer() {
                 <FaGithub size={18} />
               </a>
               <a
-                href="https://wa.me/923254828492"
+                href="https://wa.me/923134364840"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-lg bg-card border border-border hover:border-accent text-foreground/70 hover:text-foreground flex items-center justify-center transition-all duration-200"
@@ -158,15 +158,15 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-foreground/75">
               <li className="flex items-start space-x-3">
                 <Mail size={16} className="text-accent mt-1 flex-shrink-0" />
-                <span className="break-all">info@tsquaretechnologies.com</span>
+                <span className="break-all">tsquareinnovations.info@gmail.com</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Phone size={16} className="text-accent mt-1 flex-shrink-0" />
-                <span>+1 (555) 019-2834</span>
+                <span>+92 313 4364840</span>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin size={16} className="text-accent mt-1 flex-shrink-0" />
-                <span>Silicon Valley, CA, USA</span>
+                <span>Lahore, Punjab, Pakistan</span>
               </li>
             </ul>
           </div>
